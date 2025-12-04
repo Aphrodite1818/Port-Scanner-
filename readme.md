@@ -14,6 +14,14 @@ A small Python port-scanning project with a minimal Streamlit front-end and a si
 - Intends to provide a small UI (Streamlit) where you can enter a hostname/IP and a port or port range, then scan for open TCP ports.
 - Includes a very small prototype scanner script that demonstrates creating sockets and attempting connections.
 
+**Try it Online**
+
+An online version is available here: **[https://aphrodite1818-port-scanner.streamlit.app/](https://aphrodite1818-port-scanner.streamlit.app/)**
+
+⚠️ **Important:** The online version can only scan targets that are publicly accessible (online services, external hosts). It **cannot** scan your local machine or private network addresses (`localhost`, `127.0.0.1`, `192.168.x.x`, etc.) due to network restrictions of the hosting environment.
+
+For scanning your local machine or private network, you must run the app locally (see setup below).
+
 **Prerequisites**
 - Python 3.8+ installed (adjust if using a different interpreter)
 - (Recommended) Use a virtual environment to avoid polluting the global Python environment.
