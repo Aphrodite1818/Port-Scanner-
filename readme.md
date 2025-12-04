@@ -73,3 +73,9 @@ python Port_Scanner_App/port_scannner.py
 
 **Troubleshooting**
 - If Streamlit fails to start, ensure it is installed in the active environment (`pip install streamlit`).
+
+**Usage & Disclaimer**
+
+- This tool is provided for educational and testing purposes only. Use it responsibly and only scan systems and networks for which you have explicit permission.
+- The author is not responsible or liable for any misuse, damage, loss, or legal consequences resulting from the use of this software.
+- By using this tool you agree to follow applicable laws and your organization or provider's acceptable use policies.
