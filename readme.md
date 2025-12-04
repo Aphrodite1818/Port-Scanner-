@@ -1,81 +1,73 @@
+==================================
+Port Scanner
 
-# Port Scanner
+A lightweight Python-based TCP port scanner with a minimal Streamlit front-end. This project provides a simple interface for checking open ports on a target host and includes a basic prototype scanner script using Python’s socket module.
 
-A small Python port-scanning project with a minimal Streamlit front-end and a simple scanner script. This repository contains a prototype for discovering open TCP ports on a target host.
+Status: Prototype. The current UI and scanner logic are functional but minimal, and may require further expansion depending on the use case.
 
-**Status:** Prototype — basic files present. The Streamlit app and scanner script are minimal and may need further implementation to add a full UI and scanning features.
+Features
 
-**Contents:**
-- `Port_Scanner_App/app.py` — (Streamlit app entry, currently minimal)
-- `Port_Scanner_App/port_scanner.py` — simple Python script using `socket` (prototype)
-- `requirements.txt` — Python dependencies
+– Streamlit UI to enter hostnames/IP addresses and scan single ports or ranges
+– Basic socket-based TCP port scanning
+– Option to run either through the web app or directly via the scanner script
 
-**What this project does (basics):**
-- Intends to provide a small UI (Streamlit) where you can enter a hostname/IP and a port or port range, then scan for open TCP ports.
-- Includes a very small prototype scanner script that demonstrates creating sockets and attempting connections.
+Live Demo
 
-**Try it Online**
+A hosted version is available at:
+https://aphrodite1818-port-scanner.streamlit.app/
 
-An online version is available here: **[https://aphrodite1818-port-scanner.streamlit.app/](https://aphrodite1818-port-scanner.streamlit.app/)**
+Note: Hosted environments cannot access private/local network addresses such as localhost, 127.0.0.1, or 192.168.x.x. To scan local networks or your own machine, run the app locally.
 
-⚠️ **Important:** The online version can only scan targets that are publicly accessible (online services, external hosts). It **cannot** scan your local machine or private network addresses (`localhost`, `127.0.0.1`, `192.168.x.x`, etc.) due to network restrictions of the hosting environment.
+Project Structure
 
-For scanning your local machine or private network, you must run the app locally (see setup below).
+Port_Scanner_App/
+│ app.py (Streamlit app entry point)
+│ port_scanner.py (core scanner logic)
+requirements.txt
 
-**Prerequisites**
-- Python 3.8+ installed (adjust if using a different interpreter)
-- (Recommended) Use a virtual environment to avoid polluting the global Python environment.
+Prerequisites
 
-**Quick setup (Windows PowerShell)**
+– Python 3.8+
+– (Recommended) A virtual environment for dependency isolation
 
-1. Open PowerShell and navigate to the project folder:
+Setup (Windows / PowerShell)
 
-```
+Navigate to the project folder:
+
 cd Port_scanner
-```
 
-2. (Optional) If you want to create a fresh virtual environment:
+(Optional) Create and activate a virtual environment:
 
-```
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
+..venv\Scripts\Activate.ps1
 
-3. If you prefer to use the included `scanner` virtual environment, activate it instead:
+Install dependencies:
 
-```
-.\scanner\Scripts\Activate.ps1
-```
-
-4. Install dependencies:
-
-```
 pip install -r requirements.txt
-```
 
-**Run the Streamlit app**
+Running the App (Streamlit UI)
 
-Start the UI with Streamlit (from the project root):
+From the project root, run:
 
-```
 streamlit run Port_Scanner_App/app.py
-```
 
-This will open a local web UI (usually at `http://localhost:8501`) where the app can prompt for input. Note: the current `app.py` is a minimal placeholder — if it is empty you may need to add UI code or run the script directly (see below).
+Streamlit will launch the web interface in your browser (typically http://localhost:8501
+).
 
-**Run the scanner script directly**
+Running the Scanner Directly
 
-You can run the prototype scanner script (it's minimal and may not provide interactive prompts):
+You can run the underlying scanner script without the UI:
 
-```
-python Port_Scanner_App/port_scannner.py
-```
+python Port_Scanner_App/port_scanner.py
 
-**Troubleshooting**
-- If Streamlit fails to start, ensure it is installed in the active environment (`pip install streamlit`).
+Troubleshooting
 
-**Usage & Disclaimer**
+– If Streamlit does not run, ensure it is installed in the active environment.
+– If the script cannot import modules, confirm your virtual environment is active.
+– File paths may differ depending on your OS; adjust as needed.
 
-- This tool is provided for educational and testing purposes only. Use it responsibly and only scan systems and networks for which you have explicit permission.
-- The author is not responsible or liable for any misuse, damage, loss, or legal consequences resulting from the use of this software.
-- By using this tool you agree to follow applicable laws and your organization or provider's acceptable use policies.
+Usage & Legal Notice
+
+This tool is intended strictly for learning, testing, and security assessment on networks and systems you have permission to scan. Unauthorized port scanning may violate laws or service agreements. The author is not responsible for misuse or consequences arising from the use of this software.
+
+==================================
