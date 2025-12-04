@@ -46,7 +46,7 @@ def scan(targets, ports):
 
 
 
-if __name__ =="main":
+if __name__ =="__main__":
     targets = input("Enter target(s) to scan (split multiple targets with ','): ")
     ports = int(input("Enter number of ports to scan: "))
     scan_results = scan(targets, ports)
