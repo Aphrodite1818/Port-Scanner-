@@ -1,52 +1,34 @@
 import socket
 
-
-
-#Main Port scanner function that performs the scan
+# Main port scanner function
 def port_scanner(ipaddress, port):
     try:
         sock = socket.socket()
-        sock.settimeout(0.3)
+        sock.settimeout(0.5)  # slightly higher timeout
         sock.connect((ipaddress, port))
         return f"[+] PORT OPEN {port}"
-    except:
+    except socket.error:
         return f"[-] PORT CLOSED {port}"
     finally:
-        sock.close()
+        try:
+            sock.close()
+        except:
+            pass
 
-"""
-Function that handles either to perform a single scan or multiple scan depending on the number 
-of targets provided
-"""
+# Handles single or multiple target scanning
 def scan(targets, ports):
-    results = []  #this list stores the results of the scan and returns it all at once 
+    results = []
 
-    # Multiple targets scan
-    if ',' in targets:
-        for ip in targets.split(','):
-            ip = ip.strip()
-            results.append(f"\nScanning {ip}")
-            for port in range(1, ports + 1):
-                results.append(port_scanner(ip, port))
-        return results
-    
-
-
-
-
-    #NB:This is an else block
-
-    # Single target scan
-    results.append(f"\nScanning {targets}")
-    for port in range(1, ports + 1):
-        results.append(port_scanner(targets, port))
+    target_list = [t.strip() for t in targets.split(',')]
+    for ip in target_list:
+        results.append(f"\nScanning {ip}")
+        for port in range(1, ports + 1):
+            results.append(port_scanner(ip, port))
 
     return results
 
-
-
-
-if __name__ =="__main__":
+# CLI testing
+if __name__ == "__main__":
     targets = input("Enter target(s) to scan (split multiple targets with ','): ")
     ports = int(input("Enter number of ports to scan: "))
     scan_results = scan(targets, ports)
