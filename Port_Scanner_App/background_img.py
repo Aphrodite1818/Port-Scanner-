@@ -2,9 +2,6 @@ import streamlit as st
 
 
 
-
-
-
 def set_bg_url(url):
     css = f"""
     <style>
